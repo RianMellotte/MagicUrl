@@ -7,6 +7,7 @@ namespace API.Data
     {
         public UrlContext(DbContextOptions options) : base(options)
         {
+            this.Database.Migrate();
         }
 
         public DbSet<UrlEntity> UrlRepo { get; set; }
