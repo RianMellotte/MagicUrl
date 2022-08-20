@@ -38,6 +38,7 @@ builder.Services.AddDbContext<UrlContext>(options =>
 
         options.UseNpgsql(connStr);
     });
+builder.Services.AddScoped<DbContext, UrlContext>();
 builder.Services.AddScoped<IUrlRepo, UrlRepo>();
 builder.Services.AddCors( config => config.AddPolicy(name: "Origin",
     policy => { 
