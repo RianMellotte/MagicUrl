@@ -1,6 +1,4 @@
-import { Outlet, Route } from "react-router-dom";
-import ErrorPage from "./Components/ErrorPage";
-import InputPage from "./Components/InputPage";
+import { Outlet } from "react-router-dom";
 
 function App() {
   

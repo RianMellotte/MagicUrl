@@ -5,6 +5,5 @@ namespace API.Models
         public Task<UrlEntity[]> UrlExists(string Url);
         public Task<UrlEntity> AddUrl(string Url);
         public Task<UrlEntity[]> GetUrlFromId(int Id);
-        public void DeleteAll();
     }
 }

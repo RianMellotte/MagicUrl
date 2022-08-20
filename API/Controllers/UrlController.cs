@@ -29,7 +29,7 @@ public class UrlController : ControllerBase
             return BadRequest(ModelState);
         }
 
-        // Check if URL is already in the database, and return it if it is.
+        // Try checking if URL is already in the database, and return it if it is
         try 
         {
             UrlEntity[] existingUrlEntity = await _urlRepo.UrlExists(url);
@@ -37,13 +37,13 @@ public class UrlController : ControllerBase
             {
                 return Ok(existingUrlEntity[0]);
             }
-        } catch (Exception ex)
+        } catch
         {
-            ModelState.AddModelError("Error", $"{ex}");
+            ModelState.AddModelError("Error", $"Sorry, something went wrong with your request. Please try again or contact site administrator");
             return StatusCode(200, ModelState);
         }
 
-        // Create new UrlEntity and return it if it is valid.
+        // Check if url resolves, and if it does add it to the database
         bool isValid = await UrlEntity.UrlIsValid(url);
 
         if (isValid) 
@@ -67,6 +67,7 @@ public class UrlController : ControllerBase
     [Route("/{Id:int}")]
     public async Task<IActionResult> ForwardUser([FromRoute]int id)
     {
+        // Forward user to desired url, or show error page if it doesn't exist in DB
         try {
             UrlEntity[] urlEntity = await _urlRepo.GetUrlFromId(id);
             if (urlEntity.Length > 0)

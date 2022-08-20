@@ -1,5 +1,3 @@
-import { Route } from "react-router-dom";
-
 function ErrorPage() {
     return (
         <div>

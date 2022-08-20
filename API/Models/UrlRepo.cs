@@ -32,12 +32,5 @@ namespace API.Models
             UrlEntity[] existingUrl = await _urlContext.UrlRepo.Where(x => Equals(x.Url, url)).ToArrayAsync();
             return existingUrl;
         }
-
-        public void DeleteAll()
-        {
-            IEnumerable<UrlEntity> AllUrls = _urlContext.UrlRepo.ToList();
-            _urlContext.UrlRepo.RemoveRange(AllUrls);    
-            _urlContext.SaveChanges();
-        }
     }
 }
