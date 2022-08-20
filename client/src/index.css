@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-color:lavender;
+    font-family: Helvetica;
+    text-align: center;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+p {
+    margin-bottom: 50px;
+}
+
+.input-section {
+    display: flex;
+    justify-content: center;
+}
+
+#url-input {
+    flex: 0 1 50%;
+    margin-right: 10px;
+}
+
+#error {
+    color: red;
+    font-weight: bold;
+}
+
+#result, #error {
+    margin-top: 30px;
+}
+
+
+.hide {
+    display: none;
+}
