@@ -37,9 +37,9 @@ public class UrlController : ControllerBase
             {
                 return Ok(existingUrlEntity[0]);
             }
-        } catch
+        } catch (Exception ex)
         {
-            ModelState.AddModelError("Error", $"Something went wrong while looking for the url in our records. Please try again or contact the site administrator for help.");
+            ModelState.AddModelError("Error", $"{ex}");
             return StatusCode(200, ModelState);
         }
 
